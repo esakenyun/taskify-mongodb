@@ -1,0 +1,84 @@
+<body class="bg-slate-100">
+  <form method="post" action="/edit-task">
+    <!-- component -->
+    <input type="hidden" name="taskId" value="<%= task ? task._id : '' %>" />
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="container max-w-screen-lg mx-auto">
+        <div class="flex justify-center items-center">
+            <img src="/images/logo.png" class="h-20 mb-5" alt="logo">
+        </div>
+        <div>
+          <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <h1 class="text-center text-slate-900 text-3xl mb-5 font-bold">Edit Task</h1>
+            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-2">
+              <div class="lg:col-span-2">
+                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                  <div class="md:col-span-5">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="<%= task ? task.name : '' %>" required/>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"><%= task ? task.description : '' %></textarea>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="priority">Priority</label>
+                    <div class="flex mt-1">
+                      <% for (let i = 1; i <= 5; i++) { %> <input type="radio" id="priority<%= i %>" name="priority" value="<%= i %>" class="mr-2" <% if (task && task.priority == i) { %>checked<% } %> />
+                      <label for="priority<%= i %>" class="mr-4"><%= i %></label>
+                      <% } %>
+                    </div>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="Category">Category</label>
+                    <select name="category" id="category" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50">
+                      <option value="" disabled>Select Task Category</option>
+                      <option value="Learning" <% if (task && task.category === 'Learning') { %>selected<% } %>>Learning</option>
+                      <option value="Working" <% if (task && task.category === 'Working') { %>selected<% } %>>Working</option>
+                      <option value="General" <% if (task && task.category === 'General') { %>selected<% } %>>General</option>
+                    </select>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50">
+                      <option value="" disabled>Select Task Status</option>
+                      <option value="To Do" <% if (task && task.status === 'To Do') { %>selected<% } %>>To Do</option>
+                      <option value="In Progress" <% if (task && task.status === 'In Progress') { %>selected<% } %>>In Progress</option>
+                      <option value="Completed"  <% if (task && task.status === 'Completed') { %>selected<% } %>>Completed</option>
+                    </select>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="<%= task ? task.date : '' %>" />
+                  </div>
+
+                  <div class="md:col-span-3">
+                    <label for="note">Note</label>
+                    <textarea name="note" id="note" rows="4" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"><%= task ? task.note : '' %></textarea>
+                  </div>
+
+                  <div class="md:col-span-5 flex">
+                    <!-- Button on the left -->
+                    <div class="justify-start mt-2">
+                      <a href="/dashboard" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Back</a>
+                    </div>
+
+                    <!-- Button on the right -->
+                    <div class="ml-auto inline-flex items-end">
+                      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>

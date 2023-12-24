@@ -1,0 +1,92 @@
+<body class="bg-slate-100">
+  <form method="post" action="/addtask">
+    <!-- component -->
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="container max-w-screen-lg mx-auto">
+        <div class="flex justify-center items-center">
+          <img src="/images/logo.png" class="h-20 mb-5" alt="logo" />
+        </div>
+        <div>
+          <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <h1 class="text-center text-slate-900 text-3xl mb-5 font-bold">Add Your Task</h1>
+            <div class="grid gap-4 gap text-sm grid-cols-1 lg:grid-cols-2">
+              <div class="lg:col-span-2">
+                <div class="grid gap-4 gap text-sm grid-cols-1 md:grid-cols-5">
+                  <div class="md:col-span-5">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" required />
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"></textarea>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="priority">Priority</label>
+
+                    <div class="flex mt-1">
+                      <input type="radio" id="priority1" name="priority" value="1" class="mr-2" required />
+                      <label for="priority1" class="mr-4">1</label>
+
+                      <input type="radio" id="priority2" name="priority" value="2" class="mr-2" required />
+                      <label for="priority2" class="mr-4">2</label>
+
+                      <input type="radio" id="priority3" name="priority" value="3" class="mr-2" required />
+                      <label for="priority3" class="mr-4">3</label>
+
+                      <input type="radio" id="priority4" name="priority" value="4" class="mr-2" required />
+                      <label for="priority4" class="mr-4">4</label>
+
+                      <input type="radio" id="priority5" name="priority" value="5" class="mr-2" required />
+                      <label for="priority5">5</label>
+                    </div>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="Category">Category</label>
+                    <select name="category" id="category" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" required>
+                      <option value="">Select Task Category</option>
+                      <option value="Learning">Learning</option>
+                      <option value="Working">Working</option>
+                      <option value="General">General</option>
+                    </select>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" required>
+                      <option value="">Select Task Status</option>
+                      <option value="To Do">To Do</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" required />
+                  </div>
+
+                  <div class="md:col-span-3">
+                    <label for="note">Note</label>
+                    <textarea name="note" id="note" rows="4" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"></textarea>
+                  </div>
+
+                  <div class="md:col-span-5 flex">
+                    <div class="justify-start mt-2">
+                      <a href="/dashboard" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Back</a>
+                    </div>
+                    <div class="ml-auto inline-flex items-end">
+                      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
